@@ -1,47 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
-import '../components/Todo.css'
-import { BsJournalPlus } from 'react-icons/bs'
+
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import '../components/Todo.css';
+import { BsJournalPlus } from 'react-icons/bs';
+
 const getlocaldata = () => {
   const newlist = localStorage.getItem("access");
-  if (newlist) {
-    return JSON.parse(localStorage.getItem("access"))
-  } else {
-    return [];
-  }
+  return newlist ? JSON.parse(newlist) : [];
 }
+
 function Todo() {
   const [data, setdata] = useState('');
   const [items, setitems] = useState(getlocaldata());
+  const [toggledIndex, setToggledIndex] = useState(null);
+
   const additem = () => {
-    if (data !== "") {
+    if (data.trim() !== "") {
       setitems([...items, data]);
       setdata('');
     } else {
-      alert("please provide task")
+      alert("Please provide a task.");
     }
   }
-  const removeitems = (id) => {
-    const updateditems = items.filter((element, index) => {
-      if (1 === 1) {
-        return id !== index
-      }
 
-    })
+  const removeitems = (id) => {
+    const updateditems = items.filter((_, index) => index !== id);
     setitems(updateditems);
   }
+
+  const toggleClass = (index) => {
+    setToggledIndex(index === toggledIndex ? null : index);
+  }
+
   useEffect(() => {
     localStorage.setItem("access", JSON.stringify(items));
   }, [items]);
-  const change = (id) => {
-    items.filter((element, index) => {
-      if (id === index) {
-        document.getElementById(index).classList.toggle("run");
-
-      }
-    })
-
-  }
 
   return (
     <Container fluid className='some'>
@@ -52,38 +45,38 @@ function Todo() {
               <h3>TODO</h3>
             </div>
             <div className='d-flex align-items-center'>
-              <input type="text" value={data}
-                onKeyDown={(e) => {
-                  if (e.code === "Enter") {
-                    additem()
-                  }
-                }}
-                onChange={(e) => { setdata(e.target.value) }} className='w-100' />
-              <button className="mb-2" onClick={additem} >{<BsJournalPlus />}</button>
+              <input
+                type="text"
+                value={data}
+                onKeyDown={(e) => { if (e.code === "Enter") additem(); }}
+                onChange={(e) => setdata(e.target.value)}
+                className='w-100'
+              />
+              <button className="mb-2" onClick={additem}><BsJournalPlus /></button>
             </div>
             <div>
               <ul className='list-unstyled mt-4'>
-                {items.map((element, index) => {
-                  return (
-                    <li key={index} id={index} onClick={() => { change(index) }} >
-                      <span className='leftspan'>{index + 1}.</span>
-                      {element}
-
-                      <span
-                        className="fa fa-trash-o rightspan"
-                        onClick={() => { removeitems(index) }}
-                      ></span>
-                    </li>
-                  );
-                })}
-
+                {items.map((element, index) => (
+                  <li
+                    key={index}
+                    className={index === toggledIndex ? "run" : ""}
+                    onClick={() => toggleClass(index)}
+                  >
+                    <span className='leftspan'>{index + 1}.</span>
+                    {element}
+                    <span
+                      className="fa fa-trash-o rightspan"
+                      onClick={() => removeitems(index)}
+                    ></span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </Col>
       </Row>
     </Container>
-  )
+  );
 }
 
-export default Todo
+export default Todo;

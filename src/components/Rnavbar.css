@@ -1,0 +1,42 @@
+.logo{
+    width: 90px;
+    height: 90px;
+}
+.navbg{
+    background-color: var(--bg-color);
+}
+.listcolor li{
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    padding-bottom: 4px;
+    justify-content: center;
+    align-items: center ;
+    display: flex;
+    padding: 0;
+    margin: 0 10px;
+    
+}
+.listcolor .lighticon{
+    border-radius: 8px;
+    padding: 0px 10px 0px;
+    padding-bottom: 6px;
+    color: var(--txt-color);
+    border: solid var(--txt-color) 2px;
+    fill: var(--txt-color);
+}
+.fa{
+    color: var(--txt-color);
+}
+button.navbar-toggler{
+    font-size: 14px;
+    outline: none;
+    padding: 6px;
+    border: none;
+
+}
+button.navbar-toggler:focus{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}

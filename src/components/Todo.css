@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+.mydiv {
+    border-radius: 8px;
+    min-height: 68vh;
+}
+
+.some {
+    background-color: var(--bg-color);
+
+}
+
+.box {
+    border: solid var(--txt-color) 3px;
+}
+
+.heading h3 {
+    font-family: 'Allura', cursive;
+    font-weight: bold;
+    color: var(--txt-color);
+
+}
+
+.mydiv button {
+    border: none;
+    margin-left: 10px;
+    background-color: transparent;
+    border-radius: 8px;
+    font-size: 25px;
+    color: var(--txt-color);
+}
+
+.mydiv input {
+    border-radius: 8px;
+    padding: 5px 15px;
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+    border: solid 1px var(--txt-color);
+}
+
+.mydiv input:focus {
+    outline: none;
+}
+
+.mydiv li {
+    justify-content: start;
+    display: flex;
+    align-items: center;
+    padding: 2px 30px 4px 30px;
+    position: relative;
+    border-radius: 5px;
+    border: solid var(--txt-color) 1px;
+    margin-top: 10px;
+    text-align: justify;
+    color: var(--txt-color);
+    cursor: grab;
+}
+
+.leftspan {
+    position: absolute;
+    left: 5px;
+    color: red;
+}
+
+.rightspan {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: red;
+    cursor: pointer;
+}
+
+.run {
+    color: #1b360f !important;
+    background-color: #d9e093;
+    border-color: red !important;
+}

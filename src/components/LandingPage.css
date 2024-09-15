@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Lumanosimo&display=swap");
+
+
+.landing {
+    height: 85.3vh;
+    background-color: var(--bg-color);
+}
+
+.sub {
+    display: flex;
+    justify-content: center;
+}
+
+.typewriter h1 {
+    font-size: 2vw;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: 2px solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    font-weight: 300;
+    letter-spacing: .15em;
+    color: var(--txt-color);
+    animation:
+        typing 2.5s steps(30, end),
+        blink-caret .8s step-end infinite;
+        
+}
+
+/* typing animation */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: orange
+    }
+}
+
+
+
+
+.mainlight {
+    width: 100%;
+    font-family: "Lumanosimo", cursive;
+
+}
+
+.mainlight text {
+    text-transform: uppercase;
+    animation: light 8s infinite alternate;
+    stroke-width: 0;
+    stroke: var(--txt-color);
+    fill: var(--txt-color);
+    font-size: 9vw;
+    background-color: yellow;
+}
+
+/* welcome animatino */
+@keyframes light {
+    0% {
+
+        fill: var(--bg-color);
+        stroke: var(--txt-color);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+    }
+
+    70% {
+
+        fill: var(--bg-color);
+        stroke: var(--txt-color);
+    }
+
+    80% {
+
+        fill: var(--bg-color);
+        stroke: var(--txt-color);
+        stroke-width: 1;
+    }
+
+    100% {
+        fill: var(--txt-color);
+        stroke: var(--bg-color);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 1;
+    }
+}

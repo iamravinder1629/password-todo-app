@@ -1,0 +1,14 @@
+:root {
+  --bg-color: white;
+  --txt-color: black;
+}
+
+[theme="dark"] {
+
+  --bg-color: black;
+  --txt-color: white;
+
+}
+*{
+  transition: all 0.2s ease-in-out;
+}
